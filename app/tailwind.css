@@ -3,3 +3,72 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scene {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation-name: rotation;
+  animation-duration: 10s; 
+  animation-timing-function: ease-in; 
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-play-state: running; 
+}
+
+@keyframes rotation{
+  0%{
+    transform:translateZ(-105px) rotateX(0deg);
+  }
+  10%{
+    transform: translateZ(-105px) rotateX(90deg);
+  }
+  20%{
+    transform: translateZ(-105px) rotateX(90deg);
+  }
+  30%{
+    transform: translateZ(-105px) rotateX(180deg);
+  }
+  40%{
+    transform: translateZ(-105px) rotateX(180deg);
+  }
+  50%{
+    transform: translateZ(-105px) rotateX(270deg);
+  }
+  60%{
+    transform: translateZ(-105px) rotateX(270deg);
+  }
+  70%{
+    transform: translateZ(-105px) rotateX(360deg);
+  }
+  80%{
+    transform: translateZ(-105px) rotateX(360deg);
+  }
+  100%{
+    transform: translateZ(-105px) rotateX(360deg);
+  }
+}
+
+.carousel__cell {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+}
+
+.carousel__cell:nth-child(1) { transform: rotateX(  0deg) translateZ(20px); }
+.carousel__cell:nth-child(2) { transform: rotateX( 90deg) translateZ(20px); }
+.carousel__cell:nth-child(3) { transform: rotateX( 180deg) translateZ(20px); }
+.carousel__cell:nth-child(4) { transform: rotateX(270deg) translateZ(20px); }
